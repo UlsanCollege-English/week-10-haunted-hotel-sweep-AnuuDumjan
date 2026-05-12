@@ -1,9 +1,3 @@
-"""Week 10 Coding #8: Haunted Hotel Sweep.
-
-Students implement graph helper functions using adjacency lists,
-visited sets, BFS, and DFS.
-"""
-
 from collections import deque
 
 
@@ -12,7 +6,7 @@ Graph = dict[str, list[str]]
 
 def get_neighbors(graph: Graph, area: str) -> list[str]:
     """Return neighboring areas, or [] if the area is missing."""
-    
+
     return graph.get(area, [])
 
 
