@@ -1,119 +1,102 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/I7NCKCh8)
 # Week 10 Coding #8: Haunted Hotel Sweep
 
 ## Summary
 
-Write 3–6 lines explaining what this assignment does.
+This assignment uses a graph to represent different areas in a haunted hotel and the connections between them.
 
-Mention:
+BFS (Breadth-First Search) explores nearby areas level by level using a queue.
 
-- what the graph represents
-- what BFS does
-- what DFS does
-- why `visited` matters
+DFS (Depth-First Search) explores as deep as possible before backtracking using a stack.
+
+The `visited` set is important because it prevents revisiting the same area multiple times and avoids infinite loops in graphs with cycles.
 
 ---
 
 ## Approach
 
-Explain your approach in bullets.
-
-Example prompts:
-
-- How did you get neighbors safely?
-- How did you check whether a path exists?
-- How did your BFS use a queue?
-- How did your DFS use a stack?
-- How did you prevent repeated visits?
+- Used `graph.get(area, [])` to safely return neighbors or an empty list.
+- Used BFS logic with a queue to check whether a path exists between two areas.
+- Used `collections.deque` for efficient queue operations in BFS.
+- Used a stack for DFS traversal.
+- Used a `visited` set in all traversal functions to prevent repeated visits and infinite loops.
+- Reversed neighbor order in DFS so traversal follows the original graph order correctly.
 
 ---
 
 ## Complexity
 
-Fill this in with time and space complexity.
-
 ### `get_neighbors`
 
-- Time:
-- Space:
-- Why:
+- Time: O(1)
+- Space: O(1)
+- Why: Dictionary lookup is constant time.
 
 ### `has_path`
 
-- Time:
-- Space:
-- Why:
+- Time: O(V + E)
+- Space: O(V)
+- Why: BFS may visit every vertex and edge once.
 
 ### `bfs_order`
 
-- Time:
-- Space:
-- Why:
+- Time: O(V + E)
+- Space: O(V)
+- Why: BFS stores visited nodes and queue data.
 
 ### `dfs_order`
 
-- Time:
-- Space:
-- Why:
+- Time: O(V + E)
+- Space: O(V)
+- Why: DFS may visit all vertices and store them in the stack.
 
 ### Stretch: `count_reachable_areas` if completed
 
-- Time:
-- Space:
-- Why:
+- Time: O(V + E)
+- Space: O(V)
+- Why: Traverses all reachable areas while tracking visited nodes.
 
 ---
 
 ## Edge-Case Checklist
 
-Check the cases your code handles.
+- [x] empty graph
+- [x] missing start area
+- [x] missing target area
+- [x] `start == target`
+- [x] graph with a cycle
+- [x] disconnected graph
+- [x] area with no neighbors
 
-- [ ] empty graph
-- [ ] missing start area
-- [ ] missing target area
-- [ ] `start == target`
-- [ ] graph with a cycle
-- [ ] disconnected graph
-- [ ] area with no neighbors
-
-Add notes about any edge cases that were tricky.
+Notes:
+Using the `visited` set carefully was important to avoid repeated visits in cyclic graphs.
 
 ---
 
 ## Tests Added
 
-List any tests you added or changed.
-
-- 
-- 
-- 
+- Tested missing areas
+- Tested graph traversal order
+- Tested reachable and unreachable paths
 
 ---
 
 ## Known Limitations
 
-Write any limitations or unfinished parts here.
-
-If everything is complete, write:
-
-```text
 No known limitations.
-```
 
 ---
 
 ## Assistance & Sources
 
-AI used? Y/N
+AI used? Y
 
 If yes, explain what it helped with:
 
 - explanations
 - debugging
-- test ideas
 - syntax reminders
-- other:
 
 Other sources used:
 
-- 
+- Python documentation
+- Class notes
